@@ -1,0 +1,22 @@
+{
+  "name": "temporal-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "snowpack dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hassan-Naeem-code/Temporal-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hassan-Naeem-code/Temporal-API/issues"
+  },
+  "homepage": "https://github.com/Hassan-Naeem-code/Temporal-API#readme",
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.4.0"
+  }
+}
