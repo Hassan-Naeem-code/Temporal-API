@@ -16,32 +16,7 @@ console.log("difference", rightNow.since(difference).toString());
 const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
 console.log("addDate", addDate);
 // Subtracting Date to Current Date
-const subtractDate = rightNow
-  .subtract({ days: 2, months: 5, years: 12 })
-  .toString();
-console.log("subtractDate", subtractDate);
-// Subtracting Date to Current Date
-const subtractDate = rightNow
-  .subtract({ days: 2, months: 5, years: 12 })
-  .toString();
-console.log("subtractDate", subtractDate);
-// Subtracting Date to Current Date
-const subtractDate = rightNow
-  .subtract({ days: 2, months: 5, years: 12 })
-  .toString();
-console.log("subtractDate", subtractDate);
-// Subtracting Date to Current Date
-const subtractDate = rightNow
-  .subtract({ days: 2, months: 5, years: 12 })
-  .toString();
-console.log("subtractDate", subtractDate);
-// Subtracting Date to Current Date
-const subtractDate = rightNow
-  .subtract({ days: 2, months: 5, years: 12 })
-  .toString();
-console.log("subtractDate", subtractDate);
-// Subtracting Date to Current Date
-const subtractDate = rightNow
+const subtractDate = rightNowzss
   .subtract({ days: 2, months: 5, years: 12 })
   .toString();
 console.log("subtractDate", subtractDate);
