@@ -20,3 +20,21 @@ const subtractDate = rightNow
   .subtract({ days: 2, months: 5, years: 12 })
   .toString();
 console.log("subtractDate", subtractDate);
+console.log("addDate", addDate);
+// Subtracting Date to Current Date
+const subtractDate = rightNow
+  .subtract({ days: 2, months: 5, years: 12 })
+  .toString();
+console.log("subtractDate", subtractDate);
+console.log("addDate", addDate);
+// Subtracting Date to Current Date
+const subtractDate = rightNow
+  .subtract({ days: 2, months: 5, years: 12 })
+  .toString();
+console.log("subtractDate", subtractDate);
+console.log("addDate", addDate);
+// Subtracting Date to Current Date
+const subtractDate = rightNow
+  .subtract({ days: 2, months: 5, years: 12 })
+  .toString();
+console.log("subtractDate", subtractDate);
