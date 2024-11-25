@@ -39,3 +39,30 @@ console.log("addDate", addDate);
 // Adding Date to Current Date
 const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
 console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
+// Adding Date to Current Date
+const addDate = rightNow.add({ days: 2, months: 5, years: 12 }).toString();
+console.log("addDate", addDate);
