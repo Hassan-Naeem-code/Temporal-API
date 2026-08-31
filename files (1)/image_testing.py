@@ -160,8 +160,63 @@ async def process_large_text(text_content, validation_plan, testing_evidence_fie
 
 
 
-                New hires at Ally lose their first two to four weeks to environment and access setup rather than delivery work. A new joiner does not know which AD groups they belong in, which environments (NAO, NAOTest, and downstream) they need provisioned against their X ID, or which tool entitlements their role actually requires. That knowledge lives informally with their manager and teammates, so onboarding quality varies by team, and the same questions get re-answered every time someone joins. Approvals compound the delay: each request routes to a different approver, requests sit unactioned, and the new hire has no visibility into where anything stands or who to follow up with.
 
-The business cost is measurable: weeks of paid ramp time producing no output per hire, recurring interruption of senior engineers who act as manual onboarding routers, and inconsistent access provisioning that creates both delivery delays and audit risk when entitlements are over- or under-granted.
+def _check_pdf_has_text_layer(self, file_path: Path) -> bool:
+    """
+    Check if a PDF has an extractable text layer.
+    Returns True if text is found, False if it's scanned/image-only.
+    """
+    try:
+        pdf_document = fitz.open(file_path)
+        pages_to_sample = min(10, pdf_document.page_count)
+        for page_num in range(pages_to_sample):
+            if pdf_document[page_num].get_text().strip():
+                self.logger.info(
+                    f"Found text layer on page {page_num + 1} of '{file_path.name}'"
+                )
+                pdf_document.close()
+                return True
+        pdf_document.close()
+        self.logger.info(
+            f"No text layer found in '{file_path.name}' - treating as scanned"
+        )
+        return False
+    except Exception as e:
+        self.logger.error(f"Error checking PDF for text layer: {e}")
+        return False  # Conservative - fall back to image conversion
 
-The opportunity is an AI onboarding agent that takes a new hire's X ID and reporting manager, infers the correct access profile from what comparable engineers on that team already hold, generates the required AD group and environment requests, routes them to the right approvers automatically, and guides the hire through setup step by step while tracking approval status end to end. Success looks like time-to-first-commit dropping from weeks to days, with standardized and auditable access provisioning.
+
+def _convert_pdf_text_only(self, input_path: Path, output_path: Path, prefix: str):
+    """
+    Extract text from a PDF that has a text layer, with no page limit.
+    Avoids rasterizing large documents.
+    """
+    self.logger.info(f"Extracting text from PDF using PyMuPDF...")
+    try:
+        pdf_document = fitz.open(input_path)
+        total_pages = pdf_document.page_count
+        self.logger.info(f"Extracting text from all {total_pages} pages")
+
+        pages = []
+        for page_num in range(total_pages):
+            text = pdf_document[page_num].get_text().strip()
+            if text:
+                pages.append(f"--- Page {page_num + 1} ---\n{text}")
+
+        pdf_document.close()
+
+        full_text = "\n\n".join(pages)
+        self.logger.info(
+            f"Extracted {len(full_text)} characters from {len(pages)} pages "
+            f"of '{input_path.name}'"
+        )
+
+        return {
+            'content_type': 'text',
+            'file_name': input_path.name,
+            'page_count': total_pages,
+            'text': full_text,
+        }
+    except Exception as e:
+        self.logger.error(f"PDF text extraction failed: {str(e)}")
+        raise                
