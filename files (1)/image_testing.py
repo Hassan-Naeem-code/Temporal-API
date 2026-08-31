@@ -156,3 +156,12 @@ async def process_large_text(text_content, validation_plan, testing_evidence_fie
                     "type": "text",
                     "text": batch_summary
                 })
+
+
+
+
+                New hires at Ally lose their first two to four weeks to environment and access setup rather than delivery work. A new joiner does not know which AD groups they belong in, which environments (NAO, NAOTest, and downstream) they need provisioned against their X ID, or which tool entitlements their role actually requires. That knowledge lives informally with their manager and teammates, so onboarding quality varies by team, and the same questions get re-answered every time someone joins. Approvals compound the delay: each request routes to a different approver, requests sit unactioned, and the new hire has no visibility into where anything stands or who to follow up with.
+
+The business cost is measurable: weeks of paid ramp time producing no output per hire, recurring interruption of senior engineers who act as manual onboarding routers, and inconsistent access provisioning that creates both delivery delays and audit risk when entitlements are over- or under-granted.
+
+The opportunity is an AI onboarding agent that takes a new hire's X ID and reporting manager, infers the correct access profile from what comparable engineers on that team already hold, generates the required AD group and environment requests, routes them to the right approvers automatically, and guides the hire through setup step by step while tracking approval status end to end. Success looks like time-to-first-commit dropping from weeks to days, with standardized and auditable access provisioning.
