@@ -138,3 +138,21 @@ async def process_large_text(text_content, validation_plan, testing_evidence_fie
     logger.info(f'**** {relevant_count}/{total_batches} text batches contained relevant evidence')
 
     return findings_summary, was_truncated
+
+
+            if len(t) > MAX_TEXT_LENGTH:
+                logger.info(f'**** Text length ({len(t)}) exceeds limit ({MAX_TEXT_LENGTH}), using batch processing')
+                batch_summary, was_truncated = await process_large_text(
+                    t,
+                    validation_plan,
+                    testing_evidence_field,
+                )
+                if was_truncated:
+                    errors.append(
+                        f"Document exceeded processing limit; only the first "
+                        f"{MAX_TEXT_BATCHES * MAX_TEXT_CHUNK} of {len(t)} characters were analyzed"
+                    )
+                evidence_content.append({
+                    "type": "text",
+                    "text": batch_summary
+                })
